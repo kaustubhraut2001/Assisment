@@ -3,13 +3,18 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const dotenv = require("dotenv");
 dotenv.config();
+const cors = require('cors');
 const mongodatabase = require("./database/databaseconnect");
 
 mongodatabase();
 
+
 const User = require('./Models/User');
 
 const app = express();
+
+
+app.use(cors());
 const port = process.env.PORT || 8000;
 const jwt = require('jsonwebtoken');
 
